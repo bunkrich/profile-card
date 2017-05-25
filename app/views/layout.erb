@@ -34,12 +34,13 @@
       <ul>
         <% if current_user %>
           <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
+          <li><a href="/users/<%=current_user.id%>/edit">edit</a></li>
           <li><a href="/logout">logout</a></li>
         <% else %>
-          <li><a href="/users/new">register</a></li>
+          <li><a href="/">home</a></li>
           <li><a href="/login">login</a></li>
+          <li><a href="/users/new">register</a></li>
         <% end %>
-        <li><a href="/">home</a></li>
       </ul>
     </nav>
   </div>
