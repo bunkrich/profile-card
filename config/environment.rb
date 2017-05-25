@@ -19,6 +19,7 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 
 require 'erb'
+require 'bcrypt'
 
 #FROM GOOGLE#
   # require 'google-api-client'
