@@ -1,0 +1,8 @@
+<label for="email">Email:</label>
+<input type="text" name="user[email]" tabindex="1" value="<%= @user.try(:email) %>">
+
+<label for="password">Password:</label>
+<input type="password" name="user[password]" tabindex="1">
+
+<label for="email">Google Sheets URL:</label>
+<input type="text" name="user[google_sheets_code]" tabindex="1" value="<%= @user.try(:google_sheets_code) %>">

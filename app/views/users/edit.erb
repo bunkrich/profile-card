@@ -1,0 +1,11 @@
+<h1>Edit Profile</h1>
+
+<%= erb :'_errors' %>
+
+<form action="/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+
+  <%= erb :'/users/_edit' %>
+
+  <input type="submit" value="Update" >
+</form>

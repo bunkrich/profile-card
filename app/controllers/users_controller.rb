@@ -31,14 +31,10 @@ post '/users' do
   end
 end
 
-#####################################
-# post '/users/show' do
-#   user_input_id = params["code"]
-#   @spreadsheet_id = user_input_id
-#   initialize_google_api
-#   erb :'users/show'
-# end
-######################################
+get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :'users/edit'
+end
 
 get '/users/:id' do
   @user = User.find_by(id: params[:id])
@@ -46,6 +42,16 @@ get '/users/:id' do
   initialize_google_api
   puts @spreadsheet_id
     erb :'users/show'
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  @user.assign_attributes(params[:user])
+  if @user.save
+    redirect "/users/#{@user.id}"
+  else
+    erb :'users/edit'
+  end
 end
 
 get '/logout' do

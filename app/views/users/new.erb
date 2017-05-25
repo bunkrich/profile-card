@@ -1,18 +1,10 @@
-
 <h1>Create Profile</h1>
 
 <%= erb :'_errors' %>
 
 <form action="/users" method="post">
 
-  <label for="email">Email:</label>
-  <input type="text" name="user[email]" tabindex="1">
-
-  <label for="password">Password:</label>
-  <input type="password" name="user[password]" tabindex="1">
-
-  <label for="email">Google Sheets URL:</label>
-  <input type="text" name="user[google_sheets_code]" tabindex="1">
+  <%= erb :'/users/_edit' %>
 
   <input type="submit" value="Create" >
 </form>
