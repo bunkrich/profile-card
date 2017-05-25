@@ -1,5 +1,3 @@
-
-
 get '/login' do
   erb :'users/login'
 end
@@ -21,32 +19,33 @@ end
 
 post '/users' do
   @user = User.new(params[:user])
+  user_code = @user.google_sheets_code
+  user_code = URI.parse(user_code).path.split('/')
+  @user.google_sheets_code = user_code[3]
   if @user.save
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    status 400
+    @errors = @user.errors.messages
     erb :'users/new'
   end
 end
 
 #####################################
-post '/users/show' do
-  user_input_id = params["code"]
-  @spreadsheet_id = user_input_id
-  initialize_google_api
-  erb :'users/show'
-end
+# post '/users/show' do
+#   user_input_id = params["code"]
+#   @spreadsheet_id = user_input_id
+#   initialize_google_api
+#   erb :'users/show'
+# end
 ######################################
 
 get '/users/:id' do
-  require_user
   @user = User.find_by(id: params[:id])
-  if require_owner(@user.id)
+  @spreadsheet_id = @user.google_sheets_code
+  initialize_google_api
+  puts @spreadsheet_id
     erb :'users/show'
-  else
-    redirect '/'
-  end
 end
 
 get '/logout' do
