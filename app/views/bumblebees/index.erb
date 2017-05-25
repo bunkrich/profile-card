@@ -1,0 +1,8 @@
+<h1>Here are the bumblebees!</h1>
+<ul>
+<% @bumblebees.each do |bumblebee| %>
+	<li><%= bumblebee.name %> is a <%= bumblebee.job %> id <%= bumblebee.id %></li>	
+	<br>
+	<br>
+<% end %>
+</ul>
