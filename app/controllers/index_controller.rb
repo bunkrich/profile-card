@@ -1,3 +1,3 @@
 get '/' do
-  redirect '/bumblebees'
+  erb :'index'
 end
