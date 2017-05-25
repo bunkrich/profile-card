@@ -7,30 +7,26 @@
   <script src="/js/application.js"></script>
   <title>Profile View</title>
 </head>
-<body>
-  <header>
-  </header>
-  <div>
+<body class="hg">
+  <header class="hg__header">Mini Profile</header>
+    <aside class="hg__right">Ads</aside>
+    <aside class="hg__side">Side</aside>
+<%= yield %>
 
-    <%= yield %>
-
-  </div>
 </body>
-<footer>
-  <div>
-    <nav>
-      <ul>
-        <% if current_user %>
-          <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
-          <li><a href="/users/<%=current_user.id%>/edit">edit</a></li>
-          <li><a href="/logout">logout</a></li>
-        <% else %>
-          <li><a href="/">home</a></li>
-          <li><a href="/login">login</a></li>
-          <li><a href="/users/new">register</a></li>
-        <% end %>
-      </ul>
-    </nav>
-  </div>
+<footer class="hg__footer">
+  <nav>
+    <ul>
+      <% if current_user %>
+      <li><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
+      <li><a href="/users/<%=current_user.id%>/edit">edit</a></li>
+      <li><a href="/logout">logout</a></li>
+      <% else %>
+      <li><a href="/">home</a></li>
+      <li><a href="/login">login</a></li>
+      <li><a href="/users/new">register</a></li>
+      <% end %>
+    </ul>
+  </nav>
 </footer>
 </html>
