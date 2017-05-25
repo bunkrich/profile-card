@@ -1,0 +1,7 @@
+<h1><%=@info[:first_name]%> <%=@info[:last_name]%></h1>
+<ul>
+  <% @info.each do |key, val| %>
+    <% key = key.to_s.split("_").map {|word| word.capitalize}.join(" ") %>
+    <li><%= "#{key}: #{val}" %></li>
+  <% end %>
+</ul

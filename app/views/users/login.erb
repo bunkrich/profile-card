@@ -1,0 +1,10 @@
+<h1>Login</h1>
+
+<%= erb :'_errors' %>
+
+<form action="/login" method="post">
+
+  <%= erb :'/users/_username_and_password' %>
+
+  <input type="submit" value="Login" >
+</form>
