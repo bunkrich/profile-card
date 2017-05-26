@@ -1,7 +1,46 @@
-<h1><%=@info[:first_name]%> <%=@info[:last_name]%></h1>
-<ul>
-  <% @info.each do |key, val| %>
-    <% key = key.to_s.split("_").map {|word| word.capitalize}.join(" ") %>
-    <li><%= "#{key}: #{val}" %></li>
-  <% end %>
-</ul
+<div class="hg__profile info">
+  <h1><%=@info[:first_name]%> <%=@info[:last_name]%></h1>
+</div>
+<div class="hg__main info">
+  <ul>
+    <% @info.each do |key, val| %>
+    <% puts key %>
+    <% if key != :first_name && key != :last_name && key != :about%>
+      <% key = key.to_s.split("_").map {|word| word.capitalize}.join(" ") %>
+      <li><%= "#{key}: #{val}" %></li>
+    <% end %>
+      <% end %>
+  </ul>
+</div>
+<div class="hg__content">
+  <div class="icons info">
+    <% if @link[:github] %><div>
+      <a href="<%=@link[:github]%>"><img id="github-logo" class="square" src="/images/icon-github.png" alt=""></a>
+    </div><% end %>
+
+    <% if @link[:facebook] %><div>
+      <a href="<%=@link[:facebook]%>"><img id="faecbook-logo" class="square" src="/images/icon-facebook.png" alt=""></a>
+    </div><% end %>
+
+    <% if @link[:instagram] %><div>
+      <a href="<%=@link[:instagram]%>"><img id="instagram-logo" class="square" src="/images/icon-instagram.png" alt=""></a>
+    </div><% end %>
+
+    <% if @link[:linkedin] %><div>
+      <a href="<%=@link[:linkedin]%>"><img id="instagram-logo" class="square" src="/images/icon-linkedin.png" alt=""></a>
+    </div><% end %>
+
+    <% if @link[:snapchat] %><div>
+      <a href="<%=@link[:snapchat]%>"><img id="snapchat-logo" class="square" src="/images/icon-snapchat.png" alt=""></a>
+    </div><% end %>
+
+    <% if @link[:twitter] %><div>
+      <a href="<%=@link[:twitter]%>"><img id="twitter-logo" class="square" src="/images/icon-twitter.png" alt=""></a>
+    </div><% end %>
+  </div>
+  <div >
+    <% if @info[:about] %><div class="info">
+    <p><%= @info[:about] %></p>
+    </div><% end %>
+  </div>
+</div>

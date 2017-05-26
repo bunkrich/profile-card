@@ -1,7 +1,9 @@
+<div>
 <label for="email">Email:</label>
 <input type="text" name="user[email]" tabindex="1" value="<%= @user.try(:email) %>">
-
+</div>
 <%= erb :'/users/_username_and_password' %>
-
+<div>
 <label for="email">Google Sheets URL:</label>
 <input type="text" name="user[google_sheets_code]" tabindex="1" value="<%= @user.try(:google_sheets_code) %>">
+</div>
