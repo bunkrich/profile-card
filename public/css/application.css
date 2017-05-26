@@ -1,20 +1,141 @@
-.hg__header { grid-area: header; background-color: #b7d3ff;}
-.hg__footer { grid-area: footer; background-color: #b7d3ff;}
-.hg__main { grid-area: main; background-color: #e0ecff;}
-.hg__content { grid-area: content; background-color: #2d7cff;}
-.hg__left { grid-area: navigation; background-color: #eff5ff;}
-.hg__right { grid-area: ads; background-color: #eff5ff;}
-.hg__side { grid-area: side; background-color: #478cff;}
+:root {
+  --pink: #FF2ECC;
+  --red: #A51080;
+  --tan: #FF6663;
+  --dark: #00272B;
+  --yellow: #E0FF4F;
+}
+
+body {
+
+		font-family: "Helvetica Neue";
+}
+h1 {
+	font-family: "Helvetica Neue";
+	font-size: 50px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+  color: var(--red);
+}
+
+p {
+	font-family: "Helvetica Neue";
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 22.4px;
+  color: white;
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+	font-family: "Helvetica Neue";
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 30px;
+  color: var(--dark);
+}
+
+.hg__header { grid-area: header; background-color: var(--red); text-align: center;}
+.hg__footer { grid-area: footer; background-color: var(--red);}
+.hg__main { grid-area: main; background-color: var(--yellow);}
+.hg__content { grid-area: content; background-color: var(--dark);}
+.hg__profile { grid-area: profile; background-color: var(--pink);}
+.hg__nav { grid-area: nav; background-color: var(--dark);}
+.hg__right { grid-area: right; background-color: var(--yellow);}
+.hg__side { grid-area: side; background-color: var(--tan);}
+
+.icons {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content:space-around;
+    max-width: 800px;
+}
+.info {
+  padding: 20px;
+  max-width: 800px;
+}
+.square {
+    max-width: 50px;
+    height: 50px;
+}
+
+.dropbtn {
+    background-color: var(--red);
+    color: tan;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+        width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--tan);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+input {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: bold;
+    line-height: 30px;
+    color: var(--dark);
+}
+
+.dropdown-content a {
+color: var(--dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: var(--tan)}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+right: 0;
+position: absolute;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--pink);
+}
+
 
 
 .hg {
     display: grid;
-    grid-template-areas: "header header header header"
-                         "side navigation main ads"
-                         "side content content ads"
+    grid-template-areas: "header header header nav"
+                         "side profile main right"
+                         "side content content content"
                          "footer footer footer footer";
-    grid-template-columns: 100px 2fr 3fr 1fr;
-    grid-template-rows: 100px
+    grid-template-columns: 100px 2fr 3fr 100px;
+    grid-template-rows: 50px
                         3fr
                         5fr
                         100px;
@@ -24,12 +145,12 @@
 @media screen and (max-width: 1000px) {
     .hg {
         display: grid;
-        grid-template-areas: "header header header"
-                             "side navigation main"
-                             "side content ads"
+        grid-template-areas: "header header nav"
+                             "side profile main"
+                             "side content right"
                              "footer footer footer";
-        grid-template-columns: 100px 1fr 1fr;
-        grid-template-rows: 100px
+        grid-template-columns: 100px 1fr 100px;
+        grid-template-rows: 50px
                             2fr
                             3fr
                             100px;
@@ -41,16 +162,18 @@
     .hg {
         display: grid;
         grid-template-areas: "header header"
-                             "side navigation"
+                             "nav nav"
+                             "side profile"
                              "side main"
                              "side content"
-                             "side ads"
+                             "side right"
                              "footer footer";
         grid-template-columns: 100px 1fr;
-        grid-template-rows: 100px
-                            2fr
-                            3fr
-                            4fr
+        grid-template-rows: 50px
+                            30px
+                            100%
+                            100%
+                            100%
                             1fr
                             100px;
     }
@@ -61,15 +184,16 @@
     .hg {
       display: grid;
         grid-template-areas: "header"
+                             "nav"
                              "side"
-                             "navigation"
+                             "profile"
                              "main"
                              "content"
-                             "ads"
+                             "right"
                              "footer";
         grid-template-columns: 100%;
-        grid-template-rows: 100px
-                            50px
+        grid-template-rows: 50px
+                            30px
                             100%
                             100%
                             100%
